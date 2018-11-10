@@ -13,9 +13,14 @@ use yii\web\Controller;
 class IndexController extends Controller {
 
     public function actionIndex () {
+          // 关闭布局
 //        $this->layout = false;
 //        return $this->render("index");
-        return $this->renderPartial("index");
+//        return $this->renderPartial("index");
+
+        // 渲染页面
+        $this->layout = "layout";
+        return $this->render("index");
     }
 
 }
