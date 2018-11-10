@@ -1,5 +1,8 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => 'stavyan@qq.com',
+    'pageSize' => [
+        'manage' => 10 ,
+    ]
 ];

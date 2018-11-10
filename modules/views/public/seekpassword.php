@@ -43,16 +43,12 @@ use yii\helpers\Html;
     ]); ?>
         <div class="span4 box">
             <div class="content-wrap">
-                <h6>斯塔夫商城 - 后台管理</h6>
+                <h6>斯塔夫商城 - 找回密码</h6>
                 <?php echo $form->field($model, 'adminuser')->textInput(["class" => "span12", "placeholder" => "管理员账号"]) ?>
-                <?php echo $form->field($model, 'adminpass')->passwordInput(["class" => "span12", "placeholder" => "管理员密码"]) ?>
-                <a href="<?php echo yii\helpers\Url::to(['public/seekpassword']); ?>" class="forgot">忘记密码?</a>
-                <?php echo $form->field($model, 'rememberMe')->checkbox([
-                    'id' => 'remember-me',
-                    'template' => '<div class="remember">{input}<label for="remember-me">记住我</label></div></div>'
-                ]) ?>
+                <?php echo $form->field($model, 'adminemail')->textInput(["class" => "span12", "placeholder" => "管理员邮箱"]) ?>
+                <a href="<?php echo yii\helpers\Url::to(['public/login']); ?>" class="forgot">返回登录</a>
 
-                <?php echo Html::submitButton('登录', ["class"=>"btn-glow primary login"]) ?>
+                <?php echo Html::submitButton('找回密码', ["class"=>"btn-glow primary login"]) ?>
         </div>
         <?php ActiveForm::end(); ?>
 </div>
@@ -69,7 +65,6 @@ use yii\helpers\Html;
             $btns.removeClass("active");
             $(this).addClass("active");
             var bg = $(this).data("img");
-
             $("html").css("background-image", "url('img/bgs/" + bg + "')");
         });
 
