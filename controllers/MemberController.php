@@ -100,5 +100,4 @@ class MemberController extends Controller
         return $this->render('qqreg', ['model' => $model]);
     }
 
-
 }
