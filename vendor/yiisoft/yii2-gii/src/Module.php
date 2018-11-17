@@ -50,10 +50,10 @@ class Module extends \yii\base\Module implements BootstrapInterface
      * @var array the list of IPs that are allowed to access this module.
      * Each array element represents a single IP filter which can be either an IP address
      * or an address with wildcard (e.g. 192.168.0.*) to represent a network segment.
-     * The default value is `['127.0.0.1', '::1']`, which means the module can only be accessed
+     * The default value is `['172.27.0.11', '::1']`, which means the module can only be accessed
      * by localhost.
      */
-    public $allowedIPs = ['127.0.0.1', '::1'];
+    public $allowedIPs = ['172.27.0.11', '::1'];
     /**
      * @var array|Generator[] a list of generator configurations or instances. The array keys
      * are the generator IDs (e.g. "crud"), and the array elements are the corresponding generator

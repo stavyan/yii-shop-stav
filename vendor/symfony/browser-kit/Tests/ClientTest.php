@@ -97,11 +97,11 @@ class ClientTest extends TestCase
     public function testGetRequestWithIpAsHttpHost()
     {
         $client = new TestClient();
-        $client->request('GET', 'https://example.com/foo', array(), array(), array('HTTP_HOST' => '127.0.0.1'));
+        $client->request('GET', 'https://example.com/foo', array(), array(), array('HTTP_HOST' => '172.27.0.11'));
 
         $this->assertEquals('https://example.com/foo', $client->getRequest()->getUri());
         $headers = $client->getRequest()->getServer();
-        $this->assertEquals('127.0.0.1', $headers['HTTP_HOST']);
+        $this->assertEquals('172.27.0.11', $headers['HTTP_HOST']);
     }
 
     public function testGetResponse()

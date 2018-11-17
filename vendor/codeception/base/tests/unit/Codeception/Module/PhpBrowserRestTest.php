@@ -49,7 +49,7 @@ class PhpBrowserRestTest extends Unit
 
     public function testSendAbsoluteUrlGet()
     {
-        $this->module->sendGET('http://127.0.0.1:8010/rest/user/');
+        $this->module->sendGET('http://172.27.0.11:8010/rest/user/');
         $this->module->seeResponseCodeIs(200);
     }
 

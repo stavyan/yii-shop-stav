@@ -93,7 +93,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  *     enabled:
  *         - WebDriver:
  *             browser: chrome
- *             url: http://127.0.0.1:8000
+ *             url: http://172.27.0.11:8000
  *         - Laravel5:
  *             part: ORM
  *             environment_file: .env.testing

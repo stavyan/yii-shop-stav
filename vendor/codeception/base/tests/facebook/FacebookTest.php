@@ -115,7 +115,7 @@ class FacebookTest extends \PHPUnit\Framework\TestCase
     public function testLoginToFacebook()
     {
         // precondition: you need to have a server running for this test
-        // you can start a php server with: php -S 127.0.0.1:8000 -t tests/data/app
+        // you can start a php server with: php -S 172.27.0.11:8000 -t tests/data/app
         $browserModule = new PhpBrowser($this->makeContainer());
         $this->initModule($browserModule, ['url' => 'http://localhost:8000']);
         $this->module->_inject($browserModule);

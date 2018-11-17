@@ -102,7 +102,7 @@ use yii\caching\Cache;
  * 'components' => [
  *     'db' => [
  *         'class' => '\yii\db\Connection',
- *         'dsn' => 'mysql:host=127.0.0.1;dbname=demo',
+ *         'dsn' => 'mysql:host=172.27.0.11;dbname=demo',
  *         'username' => 'root',
  *         'password' => '',
  *         'charset' => 'utf8',
@@ -241,7 +241,7 @@ class Connection extends Component
      * as specified by the database.
      *
      * Note that if you're using GBK or BIG5 then it's highly recommended to
-     * specify charset via DSN like 'mysql:dbname=mydatabase;host=127.0.0.1;charset=GBK;'.
+     * specify charset via DSN like 'mysql:dbname=mydatabase;host=172.27.0.11;charset=GBK;'.
      */
     public $charset;
     /**

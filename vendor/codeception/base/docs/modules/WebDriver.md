@@ -150,7 +150,7 @@ you should use a tunnel application provided by a service.
 
 * `url` *required* - Starting URL for your app.
 * `browser` *required* - Browser to launch.
-* `host` - Selenium server host (127.0.0.1 by default).
+* `host` - Selenium server host (172.27.0.11 by default).
 * `port` - Selenium server port (4444 by default).
 * `restart` - Set to `false` (default) to use the same browser window for all tests, or set to `true` to create a new window for each test. In any case, when all tests are finished the browser window is closed.
 * `start` - Autostart a browser for tests. Can be disabled if browser session is started with `_initializeSession` inside a Helper.

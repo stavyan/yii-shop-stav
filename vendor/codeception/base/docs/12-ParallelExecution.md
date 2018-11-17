@@ -331,7 +331,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - Db:
-            dsn: 'mysql:dbname=testdb;host=127.0.0.1'
+            dsn: 'mysql:dbname=testdb;host=172.27.0.11'
             user: 'root'
             dump: 'tests/_data/dump.sql'
             populate: true
@@ -343,35 +343,35 @@ env:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_1;host=127.0.0.1'
+                    dsn: 'mysql:dbname=testdb_1;host=172.27.0.11'
                 WebDriver:
                     url: 'http://test1.localhost/'
     env2:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_2;host=127.0.0.1'
+                    dsn: 'mysql:dbname=testdb_2;host=172.27.0.11'
                 WebDriver:
                     url: 'http://test2.localhost/'
     env3:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_3;host=127.0.0.1'
+                    dsn: 'mysql:dbname=testdb_3;host=172.27.0.11'
                 WebDriver:
                     url: 'http://test3.localhost/'
     env4:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_4;host=127.0.0.1'
+                    dsn: 'mysql:dbname=testdb_4;host=172.27.0.11'
                 WebDriver:
                     url: 'http://test4.localhost/'
     env5:
         modules:
             config:
                 Db:
-                    dsn: 'mysql:dbname=testdb_5;host=127.0.0.1'
+                    dsn: 'mysql:dbname=testdb_5;host=172.27.0.11'
                 WebDriver:
                     url: 'http://test5.localhost/'
 ```

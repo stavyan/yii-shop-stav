@@ -13,7 +13,7 @@ class DbPopulatorTest extends \Codeception\Test\Unit
         $populator = new DbPopulator(
             [
                 'populate'  => true,
-                'dsn'       => 'mysql:host=127.0.0.1;dbname=my_db',
+                'dsn'       => 'mysql:host=172.27.0.11;dbname=my_db',
                 'dump'      => 'tests/data/dumps/sqlite.sql',
                 'user'      => 'root',
                 'populator' => 'mysql -u $user -h $host -D $dbname < $dump'
@@ -22,7 +22,7 @@ class DbPopulatorTest extends \Codeception\Test\Unit
         );
 
         $this->assertEquals(
-            'mysql -u root -h 127.0.0.1 -D my_db < tests/data/dumps/sqlite.sql',
+            'mysql -u root -h 172.27.0.11 -D my_db < tests/data/dumps/sqlite.sql',
             $populator->getBuiltCommand()
         );
     }

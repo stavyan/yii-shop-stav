@@ -16,7 +16,7 @@ There are 3 suites for testing
 To run the web tests:
 1. Start PHP's internal webserver in the project directory:
     ```
-    php -S 127.0.0.1:8000 -t tests/data/app
+    php -S 172.27.0.11:8000 -t tests/data/app
     ```
 1. Start Selenium server
 1. Run:
@@ -49,7 +49,7 @@ Requirements:
 When a module requires a web server with the demo application running, you can find this app in `tests/data/app`. To execute tests for **PhpBrowser** or **WebDriver** you need to start a web server for this dir:
 
 ```
-php -S 127.0.0.1:8000 -t tests/data/app
+php -S 172.27.0.11:8000 -t tests/data/app
 ```
 
 If you run `FrameworkTest` for various frameworks, you don't need a web server running.

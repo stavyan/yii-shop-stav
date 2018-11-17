@@ -78,7 +78,7 @@ use Codeception\Lib\Driver\Iron;
  *        config:
  *           Queue:
  *              type: 'beanstalkd'
- *              host: '127.0.0.1'
+ *              host: '172.27.0.11'
  *              port: 11300
  *              timeout: 120
  *

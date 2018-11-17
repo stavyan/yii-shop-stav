@@ -151,7 +151,7 @@ class ServiceLocator extends Component
      * // a configuration array
      * $locator->set('db', [
      *     'class' => 'yii\db\Connection',
-     *     'dsn' => 'mysql:host=127.0.0.1;dbname=demo',
+     *     'dsn' => 'mysql:host=172.27.0.11;dbname=demo',
      *     'username' => 'root',
      *     'password' => '',
      *     'charset' => 'utf8',

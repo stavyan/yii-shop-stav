@@ -351,7 +351,7 @@ modules:
         - \Helper\Acceptance
     config:
         WebDriver:
-            url: 'http://127.0.0.1:8000/'
+            url: 'http://172.27.0.11:8000/'
             browser: 'firefox'
 
 env:

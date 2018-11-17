@@ -18,7 +18,7 @@ use Predis\Client as RedisDriver;
  *
  * ## Configuration
  *
- * * **`host`** (`string`, default `'127.0.0.1'`) - The Redis host
+ * * **`host`** (`string`, default `'172.27.0.11'`) - The Redis host
  * * **`port`** (`int`, default `6379`) - The Redis port
  * * **`database`** (`int`, no default) - The Redis database. Needs to be specified.
  * * **`cleanupBefore`**: (`string`, default `'never'`) - Whether/when to flush the database:
@@ -31,7 +31,7 @@ use Predis\Client as RedisDriver;
  * ```yaml
  *    modules:
  *        - Redis:
- *            host: '127.0.0.1'
+ *            host: '172.27.0.11'
  *            port: 6379
  *            database: 0
  *            cleanupBefore: 'never'
@@ -51,7 +51,7 @@ class Redis extends CodeceptionModule implements RequiresPackage
      * No default value is set for the database, using this parameter.
      */
     protected $config = [
-        'host'          => '127.0.0.1',
+        'host'          => '172.27.0.11',
         'port'          => 6379,
         'cleanupBefore' => 'never'
     ];

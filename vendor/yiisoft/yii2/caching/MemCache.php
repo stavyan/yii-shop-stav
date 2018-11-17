@@ -127,7 +127,7 @@ class MemCache extends Cache
     {
         if (empty($servers)) {
             $servers = [new MemCacheServer([
-                'host' => '127.0.0.1',
+                'host' => '172.27.0.11',
                 'port' => 11211,
             ])];
         } else {

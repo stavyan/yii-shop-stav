@@ -58,7 +58,7 @@ use Codeception\TestInterface;
  *        config:
  *           FTP:
  *              type: ftp
- *              host: '127.0.0.1'
+ *              host: '172.27.0.11'
  *              port: 21
  *              timeout: 120
  *              user: 'root'
@@ -75,7 +75,7 @@ use Codeception\TestInterface;
  *        config:
  *           FTP:
  *              type: sftp
- *              host: '127.0.0.1'
+ *              host: '172.27.0.11'
  *              port: 22
  *              timeout: 120
  *              user: 'root'

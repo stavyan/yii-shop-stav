@@ -15,7 +15,7 @@ use Codeception\Util\Stub;
 class FTPTest extends \PHPUnit\Framework\TestCase
 {
     protected $config = array(
-        'host' => '127.0.0.1',
+        'host' => '172.27.0.11',
         'tmp' => 'temp',
         'user' => 'user',
         'password' => 'password'
