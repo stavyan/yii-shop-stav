@@ -22,7 +22,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
     protected $_started = false;
 
     /** The domain name to use in HELO command */
-    protected $_domain = '[127.0.0.1]';
+    protected $_domain = '[172.27.0.11]';
 
     /** The event dispatching layer */
     protected $_eventDispatcher;
@@ -53,7 +53,7 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
      * you're using.
      *
      * If your server doesn't have a domain name, use the IP in square
-     * brackets (i.e. [127.0.0.1]).
+     * brackets (i.e. [172.27.0.11]).
      *
      * @param string $domain
      *

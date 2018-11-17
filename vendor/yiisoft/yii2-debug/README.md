@@ -51,7 +51,7 @@ return [
         'debug' => [
             'class' => 'yii\debug\Module',
             // uncomment and adjust the following to add your IP if you are not connecting from localhost.
-            //'allowedIPs' => ['127.0.0.1', '::1'],
+            //'allowedIPs' => ['172.27.0.11', '::1'],
         ],
         // ...
     ],
@@ -76,7 +76,7 @@ return [
             'class' => 'yii\debug\Module',
             'traceLine' => '<a href="phpstorm://open?url={file}&line={line}">{file}:{line}</a>',
             // uncomment and adjust the following to add your IP if you are not connecting from localhost.
-            //'allowedIPs' => ['127.0.0.1', '::1'],
+            //'allowedIPs' => ['172.27.0.11', '::1'],
         ],
         // ...
     ],
