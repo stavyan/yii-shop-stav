@@ -59,45 +59,49 @@ class MemberController extends Controller
 
     public function actionQqlogin()
     {
-        require_once("../vendor/qqlogin/qqConnectAPI.php");
+        require_once("../vendor/API/qqConnectAPI.php");
         $qc = new \QC();
         $qc->qq_login();
     }
 
     public function actionQqcallback()
     {
-        require_once("../vendor/qqlogin/qqConnectAPI.php");
-        $auth = new \OAuth();
-        $accessToken = $auth->qq_callback();
-        $openid = $auth->get_openid();
-        $qc = new \QC($accessToken, $openid);
-        $userinfo = $qc->get_user_info();
-        $session = Yii::$app->session;
-        $session['userinfo'] = $userinfo;
-        $session['openid'] = $openid;
-        if ($model = User::find()->where('openid = :openid', [':openid' => $openid])->one()) {
-            $session['loginname'] = $model->username;
-            $session['isLogin'] = 1;
-            return $this->redirect(['index/index']);
-        }
-        return $this->redirect(['member/qqreg']);
+//        require_once("../vendor/API/qqConnectAPI.php");
+//        $auth = new \OAuth();
+//        $accessToken = $auth->qq_callback();
+//        $openid = $auth->get_openid();
+//        $qc = new \QC($accessToken, $openid);
+//        $userinfo = $qc->get_user_info();
+//        $session = Yii::$app->session;
+//        $session['userinfo'] = $userinfo;
+//        $session['openid'] = $openid;
+//        if ($model = User::find()->where('openid = :openid', [':openid' => $openid])->one()) {
+//            $session['loginname'] = $model->username;
+//            $session['isLogin'] = 1;
+//            return $this->redirect(['index/index']);
+//        }
+        $this->layout = 'layout2';
+        require_once("../vendor/API/qqConnectAPI.php");
+        $qc = new \QC();
+        echo $qc->qq_callback();
+        echo $qc->get_openid();
     }
-
-    public function actionQqreg()
-    {
-        $this->layout = "layout2";
-        $model = new User;
-        if (Yii::$app->request->isPost) {
-            $post = Yii::$app->request->post();
-            $session = Yii::$app->session;
-            $post['User']['openid'] = $session['openid'];
-            if ($model->reg($post, 'qqreg')) {
-                $session['loginname'] = $post['User']['username'];
-                $session['isLogin'] = 1;
-                return $this->redirect(['index/index']);
-            }
-        }
-        return $this->render('qqreg', ['model' => $model]);
-    }
+//
+//    public function actionQqreg()
+//    {
+//        $this->layout = "layout2";
+//        $model = new User;
+//        if (Yii::$app->request->isPost) {
+//            $post = Yii::$app->request->post();
+//            $session = Yii::$app->session;
+//            $post['User']['openid'] = $session['openid'];
+//            if ($model->reg($post, 'qqreg')) {
+//                $session['loginname'] = $post['User']['username'];
+//                $session['isLogin'] = 1;
+//                return $this->redirect(['index/index']);
+//            }
+//        }
+//        return $this->render('qqreg', ['model' => $model]);
+//    }
 
 }
