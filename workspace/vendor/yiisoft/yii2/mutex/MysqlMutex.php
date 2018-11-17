@@ -20,7 +20,7 @@ use yii\base\InvalidConfigException;
  *     'components' => [
  *         'db' => [
  *             'class' => 'yii\db\Connection',
- *             'dsn' => 'mysql:host=172.27.0.11;dbname=demo',
+ *             'dsn' => 'mysql:host=127.0.0.1;dbname=demo',
  *         ]
  *         'mutex' => [
  *             'class' => 'yii\mutex\MysqlMutex',

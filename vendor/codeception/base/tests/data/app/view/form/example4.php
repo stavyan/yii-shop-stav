@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>site</title>
 
-    <link href="http://172.27.0.11:8100/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://172.27.0.11:8100/css/default.css" rel="stylesheet">
+    <link href="http://127.0.0.1:8100/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://127.0.0.1:8100/css/default.css" rel="stylesheet">
 
-    <script src="http://172.27.0.11:8100/js/jquery.min.js"></script>
-    <script src="http://172.27.0.11:8100/js/bootstrap.min.js"></script>
+    <script src="http://127.0.0.1:8100/js/jquery.min.js"></script>
+    <script src="http://127.0.0.1:8100/js/bootstrap.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,7 +19,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="shortcut icon" href="http://172.27.0.11:8100/favicon.ico" />
+    <link rel="shortcut icon" href="http://127.0.0.1:8100/favicon.ico" />
   </head>
   <body>
 
@@ -32,13 +32,13 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand" title="site" href="http://172.27.0.11:8100"><img src="http://172.27.0.11:8100/img/logo.png"></a>
+		      <a class="navbar-brand" title="site" href="http://127.0.0.1:8100"><img src="http://127.0.0.1:8100/img/logo.png"></a>
 		    </div>
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-menu">
 
 					<div class="nav navbar-nav navbar-right">
-		<a href="http://172.27.0.11:8100/auth/login"><button type="button" class="btn btn-default navbar-btn pull-right"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</button></a>
+		<a href="http://127.0.0.1:8100/auth/login"><button type="button" class="btn btn-default navbar-btn pull-right"><span class="glyphicon glyphicon-log-in"></span> Zaloguj się</button></a>
 	</div>
 
 							</div>
@@ -67,7 +67,7 @@
 
 	  <div class="checkbox">
 	    <label>
-        <input required="1" name="terms" type="checkbox" value="1"> Akceptuje warunki <a href="http://172.27.0.11:8100/terms">regulaminu</a>.
+        <input required="1" name="terms" type="checkbox" value="1"> Akceptuje warunki <a href="http://127.0.0.1:8100/terms">regulaminu</a>.
 	    </label>
 	  </div>
 

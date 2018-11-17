@@ -65,7 +65,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
-        'allowedIPs' => ['115.182.41.180','172.27.0.11'],
+        'allowedIPs' => ['115.182.41.180','127.0.0.1'],
     ];
 
     $config['bootstrap'][] = 'gii';

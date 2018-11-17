@@ -10,7 +10,7 @@ to interact with a Redis server.
 
 ## Configuration
 
-* **`host`** (`string`, default `'172.27.0.11'`) - The Redis host
+* **`host`** (`string`, default `'127.0.0.1'`) - The Redis host
 * **`port`** (`int`, default `6379`) - The Redis port
 * **`database`** (`int`, no default) - The Redis database. Needs to be specified.
 * **`cleanupBefore`**: (`string`, default `'never'`) - Whether/when to flush the database:
@@ -23,7 +23,7 @@ to interact with a Redis server.
 ```yaml
    modules:
        - Redis:
-           host: '172.27.0.11'
+           host: '127.0.0.1'
            port: 6379
            database: 0
            cleanupBefore: 'never'

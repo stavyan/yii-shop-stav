@@ -15,7 +15,7 @@ use Codeception\Util\Stub;
 class SFTPTest extends \PHPUnit\Framework\TestCase
 {
     protected $config = array(
-        'host' => '172.27.0.11',
+        'host' => '127.0.0.1',
         'port' => 22,
         'tmp' => 'temp',
         'user' => 'user',

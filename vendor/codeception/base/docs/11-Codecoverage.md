@@ -85,7 +85,7 @@ But URL of index with `c3.php` included can be specified explicitly with `c3_url
 ``` yaml
 coverage:
     # url of file which includes c3 router.
-    c3_url: 'http://172.27.0.11:8000/index-test.php/'
+    c3_url: 'http://127.0.0.1:8000/index-test.php/'
 ```
 > note: we can't have multiple `c3_url` on same host difference only by port. Please, use alias of domain 
 (i.e. `frontend.dev:8000`,`backend.dev:8080`) instead.

@@ -369,7 +369,7 @@ as well as their values. In the WebDriver module we use the default Selenium Ser
 class WebDriver extends \Codeception\Module
 {
     protected $requiredFields = ['browser', 'url'];
-    protected $config = ['host' => '172.27.0.11', 'port' => '4444'];
+    protected $config = ['host' => '127.0.0.1', 'port' => '4444'];
 ```
 
 The host and port parameter can be redefined in the suite configuration.

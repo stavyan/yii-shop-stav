@@ -70,7 +70,7 @@ service.
        config:
           Queue:
              type: 'beanstalkd'
-             host: '172.27.0.11'
+             host: '127.0.0.1'
              port: 11300
              timeout: 120
 

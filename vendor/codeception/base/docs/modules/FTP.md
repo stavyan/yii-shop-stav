@@ -55,7 +55,7 @@ For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
        config:
           FTP:
              type: ftp
-             host: '172.27.0.11'
+             host: '127.0.0.1'
              port: 21
              timeout: 120
              user: 'root'
@@ -72,7 +72,7 @@ For SFTP, add [phpseclib](http://phpseclib.sourceforge.net/) to require list.
        config:
           FTP:
              type: sftp
-             host: '172.27.0.11'
+             host: '127.0.0.1'
              port: 22
              timeout: 120
              user: 'root'

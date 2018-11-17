@@ -205,7 +205,7 @@ class Container extends Component
      * // register a class with configuration. The configuration
      * // will be applied when the class is instantiated by get()
      * $container->set('yii\db\Connection', [
-     *     'dsn' => 'mysql:host=172.27.0.11;dbname=demo',
+     *     'dsn' => 'mysql:host=127.0.0.1;dbname=demo',
      *     'username' => 'root',
      *     'password' => '',
      *     'charset' => 'utf8',
@@ -215,7 +215,7 @@ class Container extends Component
      * // In this case, a "class" element is required to specify the class
      * $container->set('db', [
      *     'class' => 'yii\db\Connection',
-     *     'dsn' => 'mysql:host=172.27.0.11;dbname=demo',
+     *     'dsn' => 'mysql:host=127.0.0.1;dbname=demo',
      *     'username' => 'root',
      *     'password' => '',
      *     'charset' => 'utf8',

@@ -155,7 +155,7 @@ Multiple parameters can be passed as array:
 extensions:
     enabled:
         - Codeception\Extension\RunProcess:
-            - php -S 172.27.0.11:8000 -t tests/data/app
+            - php -S 127.0.0.1:8000 -t tests/data/app
             - java -jar ~/selenium-server.jar
 ```
 
