@@ -67,15 +67,14 @@ class MemberController extends Controller
     public function actionQqcallback()
     {
         require_once("../vendor/API/qqConnectAPI.php");
-        $auth = new \OAuth();
+        try {
+            $auth = new \OAuth();
+        } catch (\OAuthException $e) {
+        }
+        echo $auth;
         $accessToken = $auth->qq_callback();
         $openid = $auth->get_openid();
         $qc = new \QC($accessToken, $openid);
-        echo $openid;
-        echo $accessToken;
-        $qcc = new \QC();
-        $ret = $qcc->get_user_info();
-        echo $ret;
         $userinfo = $qc->get_user_info();
         echo $userinfo;
         $session = Yii::$app->session;
