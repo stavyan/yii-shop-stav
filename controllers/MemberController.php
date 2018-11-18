@@ -67,24 +67,27 @@ class MemberController extends Controller
     public function actionQqcallback()
     {
         require_once("../vendor/API/qqConnectAPI.php");
-        try {
-            $auth = new \OAuth();
-        } catch (\OAuthException $e) {
-        }
-        echo $auth;
-        $accessToken = $auth->qq_callback();
-        $openid = $auth->get_openid();
-        $qc = new \QC($accessToken, $openid);
-        $userinfo = $qc->get_user_info();
-        echo $userinfo;
-        $session = Yii::$app->session;
-        $session['userinfo'] = $userinfo;
-        $session['openid'] = $openid;
-        if ($model = User::find()->where('openid = :openid', [':openid' => $openid])->one()) {
-            $session['loginname'] = $model->username;
-            $session['isLogin'] = 1;
-            return $this->redirect(['index/index']);
-        }
+//        $auth = new \OAuth();
+//        $accessToken = $auth->qq_callback();
+//        $openid = $auth->get_openid();
+//        $qc = new \QC($accessToken, $openid);
+//        $userinfo = $qc->get_user_info();
+//        echo $userinfo;
+
+
+        $qc = new \QC();
+        echo $qc->qq_callback();
+        echo $qc->get_openid();
+        echo $qc->get_user_info();
+
+//        $session = Yii::$app->session;
+//        $session['userinfo'] = $userinfo;
+//        $session['openid'] = $openid;
+//        if ($model = User::find()->where('openid = :openid', [':openid' => $openid])->one()) {
+//            $session['loginname'] = $model->username;
+//            $session['isLogin'] = 1;
+//            return $this->redirect(['index/index']);
+//        }
         return $this->redirect(['member/qqreg']);
     }
 
