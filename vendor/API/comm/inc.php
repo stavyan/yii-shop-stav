@@ -1,2 +1,2 @@
 <?php die('forbidden'); ?>
-{"appid":"101520029","appkey":"7fca78f82d079ee1c88e6fd93c222ebf","call,"scope":"get_user_info","errorReport":true,"storageType":"file","host":"172.27.0.11","port": "3308","user":"root","password":"qq617946852","database":"yss_shop"}
+{"appid":"101520029","appkey":"7fca78f82d079ee1c88e6fd93c222ebf","call,"scope":"get_user_info","errorReport":true,"storageType":"file"}
