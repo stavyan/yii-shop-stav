@@ -71,6 +71,7 @@ class MemberController extends Controller
         $accessToken = $auth->qq_callback();
         $openid = $auth->get_openid();
         $qc = new \QC($accessToken, $openid);
+        echo $openid;
         $userinfo = $qc->get_user_info();
         $session = Yii::$app->session;
         $session['userinfo'] = $userinfo;
