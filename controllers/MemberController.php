@@ -74,7 +74,6 @@ class MemberController extends Controller
         $userinfo = $qc->get_user_info();
         echo $userinfo;
         $session = Yii::$app->session;
-        echo $session;
         $session['userinfo'] = $userinfo;
         $session['openid'] = $openid;
         if ($model = User::find()->where('openid = :openid', [':openid' => $openid])->one()) {
