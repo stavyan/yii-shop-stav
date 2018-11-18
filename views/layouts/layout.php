@@ -53,22 +53,29 @@
         <div class="container">
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul>
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="category-grid.html">所有分类</a></li>
-                    <li><a href="cart.html">我的购物车</a></li>
-                    <li><a href="orders.html">我的订单</a></li>
+                    <li><a href="<?php echo yii\helpers\Url::to(['index/index']) ?>">首页</a></li>
+                    <?php if (\Yii::$app->session['isLogin'] == 1): ?>
+                        <li><a href="<?php echo yii\helpers\Url::to(['cart/index']) ?>">我的购物车</a></li>
+                        <li><a href="<?php echo yii\helpers\Url::to(['order/index']) ?>">我的订单</a></li>
+                    <?php endif; ?>
                 </ul>
             </div><!-- /.col -->
 
             <div class="col-xs-12 col-sm-6 no-margin">
                 <ul class="right">
-                    <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">注册</a></li>
-                    <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">登录</a></li>
+                    <?php if (\Yii::$app->session['isLogin'] == 1): ?>
+                        您好 , 欢迎您回来 <?php echo \Yii::$app->session['loginname']; ?> , <a
+                                href="<?php echo yii\helpers\Url::to(['member/logout']); ?>">退出</a>
+                    <?php else: ?>
+                        <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">注册</a></li>
+                        <li><a href="<?php echo yii\helpers\Url::to(['member/auth']); ?>">登录</a></li>
+                    <?php endif; ?>
                 </ul>
             </div><!-- /.col -->
         </div><!-- /.container -->
     </nav><!-- /.top-bar -->
-    <!-- ============================================================= TOP NAVIGATION : END ============================================================= -->		<!-- ============================================================= HEADER ============================================================= -->
+    <!-- ============================================================= TOP NAVIGATION : END ============================================================= -->
+    <!-- ============================================================= HEADER ============================================================= -->
     <header>
         <div class="container no-padding">
 
@@ -79,7 +86,8 @@
                         <img alt="logo" src="assets/images/logo.PNG" width="233" height="54"/>
                     </a>
                 </div><!-- /.logo -->
-                <!-- ============================================================= LOGO : END ============================================================= -->		</div><!-- /.logo-holder -->
+                <!-- ============================================================= LOGO : END ============================================================= -->
+            </div><!-- /.logo-holder -->
 
             <div class="col-xs-12 col-sm-12 col-md-6 top-search-holder no-margin">
                 <div class="contact-row">
@@ -94,29 +102,34 @@
                 <div class="search-area">
                     <form>
                         <div class="control-group">
-                            <input class="search-field" placeholder="搜索商品" />
+                            <input class="search-field" placeholder="搜索商品"/>
 
                             <ul class="categories-filter animate-dropdown">
                                 <li class="dropdown">
 
-                                    <a class="dropdown-toggle"  data-toggle="dropdown" href="category-grid.html">所有分类</a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="category-grid.html">所有分类</a>
 
-                                    <ul class="dropdown-menu" role="menu" >
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html">电子产品</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html">电子产品</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html">电子产品</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="category-grid.html">电子产品</a></li>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                   href="category-grid.html">电子产品</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                   href="category-grid.html">电子产品</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                   href="category-grid.html">电子产品</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                   href="category-grid.html">电子产品</a></li>
 
                                     </ul>
                                 </li>
                             </ul>
 
-                            <a style="padding:15px 15px 13px 12px" class="search-button" href="#" ></a>
+                            <a style="padding:15px 15px 13px 12px" class="search-button" href="#"></a>
 
                         </div>
                     </form>
                 </div><!-- /.search-area -->
-                <!-- ============================================================= SEARCH AREA : END ============================================================= -->		</div><!-- /.top-search-holder -->
+                <!-- ============================================================= SEARCH AREA : END ============================================================= -->
+            </div><!-- /.top-search-holder -->
 
             <div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
                 <div class="top-cart-row-container">
@@ -129,7 +142,7 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <div class="basket-item-count">
                                     <span class="count">3</span>
-                                    <img src="assets/images/icon-cart.png" alt="" />
+                                    <img src="assets/images/icon-cart.png" alt=""/>
                                 </div>
 
                                 <div class="total-price-basket">
@@ -146,7 +159,7 @@
                                         <div class="row">
                                             <div class="col-xs-4 col-sm-4 no-margin text-center">
                                                 <div class="thumb">
-                                                    <img alt="" src="assets/images/products/product-small-01.jpg" />
+                                                    <img alt="" src="assets/images/products/product-small-01.jpg"/>
                                                 </div>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 no-margin">
@@ -163,7 +176,7 @@
                                         <div class="row">
                                             <div class="col-xs-4 col-sm-4 no-margin text-center">
                                                 <div class="thumb">
-                                                    <img alt="" src="assets/images/products/product-small-01.jpg" />
+                                                    <img alt="" src="assets/images/products/product-small-01.jpg"/>
                                                 </div>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 no-margin">
@@ -180,7 +193,7 @@
                                         <div class="row">
                                             <div class="col-xs-4 col-sm-4 no-margin text-center">
                                                 <div class="thumb">
-                                                    <img alt="" src="assets/images/products/product-small-01.jpg" />
+                                                    <img alt="" src="assets/images/products/product-small-01.jpg"/>
                                                 </div>
                                             </div>
                                             <div class="col-xs-8 col-sm-8 no-margin">
@@ -210,7 +223,8 @@
                         </div><!-- /.basket -->
                     </div><!-- /.top-cart-holder -->
                 </div><!-- /.top-cart-row-container -->
-                <!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->		</div><!-- /.top-cart-row -->
+                <!-- ============================================================= SHOPPING CART DROPDOWN : END ============================================================= -->
+            </div><!-- /.top-cart-row -->
 
         </div><!-- /.container -->
 
@@ -219,7 +233,8 @@
             <div class="container">
                 <div class="yamm navbar">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mc-horizontal-menu-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#mc-horizontal-menu-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -230,9 +245,11 @@
                     <div class="collapse navbar-collapse" id="mc-horizontal-menu-collapse">
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">电子产品</a>
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                   data-toggle="dropdown">电子产品</a>
                                 <ul class="dropdown-menu">
-                                    <li><div class="yamm-content">
+                                    <li>
+                                        <div class="yamm-content">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-4">
                                                     <h2>Laptops &amp; Notebooks</h2>
@@ -277,9 +294,11 @@
                             </li>
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">电子产品</a>
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                   data-toggle="dropdown">电子产品</a>
                                 <ul class="dropdown-menu">
-                                    <li><div class="yamm-content">
+                                    <li>
+                                        <div class="yamm-content">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-4">
                                                     <h2>Laptops &amp; Notebooks</h2>
@@ -324,7 +343,8 @@
                             </li>
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">电子产品</a>
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                   data-toggle="dropdown">电子产品</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Computer Cases &amp; Accessories</a></li>
                                     <li><a href="#">CPUs, Processors</a></li>
@@ -339,9 +359,11 @@
                             </li>
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">电子产品</a>
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                   data-toggle="dropdown">电子产品</a>
                                 <ul class="dropdown-menu">
-                                    <li><div class="yamm-content">
+                                    <li>
+                                        <div class="yamm-content">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-4">
                                                     <h2>Laptops &amp; Notebooks</h2>
@@ -387,7 +409,8 @@
 
 
                             <li class="dropdown yamm-fw">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">电子产品</a>
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                   data-toggle="dropdown">电子产品</a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="yamm-content">
@@ -448,7 +471,8 @@
 
 
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">电子产品</a>
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                   data-toggle="dropdown">电子产品</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Motherboard Components &amp; Accs</a></li>
                                     <li><a href="#">Power Supplies Power</a></li>
@@ -472,9 +496,11 @@
                             </li>
 
                             <li class="dropdown navbar-right hidden-md">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">电子产品</a>
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                                   data-toggle="dropdown">电子产品</a>
                                 <ul class="dropdown-menu">
-                                    <li><div class="yamm-content">
+                                    <li>
+                                        <div class="yamm-content">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-4">
                                                     <h2>Laptops &amp; Notebooks</h2>
@@ -525,353 +551,371 @@
         <!-- ========================================= NAVIGATION : END ========================================= -->
     </header>
 
-    <!-- ============================================================= HEADER : END ============================================================= -->		<div id="single-product">
+    <!-- ============================================================= HEADER : END ============================================================= -->
+    <div id="single-product">
 
 
-<?php echo $content; ?>
+        <?php echo $content; ?>
 
-<footer id="footer" class="color-bg">
+        <footer id="footer" class="color-bg">
 
-    <div class="container">
-        <div class="row no-margin widgets-row">
-            <div class="col-xs-12  col-sm-4 no-margin-left">
-                <!-- ============================================================= FEATURED PRODUCTS ============================================================= -->
-                <div class="widget">
-                    <h2>推荐商品</h2>
-                    <div class="body">
-                        <ul>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">Netbook Acer Travel B113-E-10072</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+            <div class="container">
+                <div class="row no-margin widgets-row">
+                    <div class="col-xs-12  col-sm-4 no-margin-left">
+                        <!-- ============================================================= FEATURED PRODUCTS ============================================================= -->
+                        <div class="widget">
+                            <h2>推荐商品</h2>
+                            <div class="body">
+                                <ul>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">Netbook Acer Travel B113-E-10072</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-01.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </li>
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-01.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-02.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-02.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                                    </li>
 
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-03.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.body -->
+                        </div> <!-- /.widget -->
+                        <!-- ============================================================= FEATURED PRODUCTS : END ============================================================= -->
+                    </div><!-- /.col -->
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-03.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /.body -->
-                </div> <!-- /.widget -->
-                <!-- ============================================================= FEATURED PRODUCTS : END ============================================================= -->            </div><!-- /.col -->
+                    <div class="col-xs-12 col-sm-4 ">
+                        <!-- ============================================================= ON SALE PRODUCTS ============================================================= -->
+                        <div class="widget">
+                            <h2>促销商品</h2>
+                            <div class="body">
+                                <ul>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">HP Scanner 2910P</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
 
-            <div class="col-xs-12 col-sm-4 ">
-                <!-- ============================================================= ON SALE PRODUCTS ============================================================= -->
-                <div class="widget">
-                    <h2>促销商品</h2>
-                    <div class="body">
-                        <ul>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">HP Scanner 2910P</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-04.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-04.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
+                                    </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">Galaxy Tab 3 GT-P5210 16GB, Wi-Fi, 10.1in
+                                                    - White</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
 
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">Galaxy Tab 3 GT-P5210 16GB, Wi-Fi, 10.1in - White</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-05.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </li>
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-05.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
 
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-06.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.body -->
+                        </div> <!-- /.widget -->
+                        <!-- ============================================================= ON SALE PRODUCTS : END ============================================================= -->
+                    </div><!-- /.col -->
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-06.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /.body -->
-                </div> <!-- /.widget -->
-                <!-- ============================================================= ON SALE PRODUCTS : END ============================================================= -->            </div><!-- /.col -->
+                    <div class="col-xs-12 col-sm-4 ">
+                        <!-- ============================================================= TOP RATED PRODUCTS ============================================================= -->
+                        <div class="widget">
+                            <h2>最热商品</h2>
+                            <div class="body">
+                                <ul>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">Galaxy Tab GT-P5210, 10" 16GB Wi-Fi</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
 
-            <div class="col-xs-12 col-sm-4 ">
-                <!-- ============================================================= TOP RATED PRODUCTS ============================================================= -->
-                <div class="widget">
-                    <h2>最热商品</h2>
-                    <div class="body">
-                        <ul>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">Galaxy Tab GT-P5210, 10" 16GB Wi-Fi</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-07.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </li>
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-07.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
 
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">PowerShot Elph 115 16MP Digital Camera</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-08.jpg"/>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </li>
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-08.jpg" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                                    <li>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-9 no-margin">
+                                                <a href="single-product.html">Surface RT 64GB, Wi-Fi, 10.6in - Dark
+                                                    Titanium</a>
+                                                <div class="price">
+                                                    <div class="price-prev">￥2000</div>
+                                                    <div class="price-current">￥1873</div>
+                                                </div>
+                                            </div>
 
-                            <li>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-9 no-margin">
-                                        <a href="single-product.html">Surface RT 64GB, Wi-Fi, 10.6in - Dark Titanium</a>
-                                        <div class="price">
-                                            <div class="price-prev">￥2000</div>
-                                            <div class="price-current">￥1873</div>
+                                            <div class="col-xs-12 col-sm-3 no-margin">
+                                                <a href="#" class="thumb-holder">
+                                                    <img alt="" src="assets/images/blank.gif"
+                                                         data-echo="assets/images/products/product-small-09.jpg"/>
+                                                </a>
+                                            </div>
+
                                         </div>
-                                    </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.body -->
+                        </div><!-- /.widget -->
+                        <!-- ============================================================= TOP RATED PRODUCTS : END ============================================================= -->
+                    </div><!-- /.col -->
 
-                                    <div class="col-xs-12 col-sm-3 no-margin">
-                                        <a href="#" class="thumb-holder">
-                                            <img alt="" src="assets/images/blank.gif" data-echo="assets/images/products/product-small-09.jpg" />
-                                        </a>
-                                    </div>
+                </div><!-- /.widgets-row-->
+            </div><!-- /.container -->
 
-                                </div>
-                            </li>
-                        </ul>
-                    </div><!-- /.body -->
-                </div><!-- /.widget -->
-                <!-- ============================================================= TOP RATED PRODUCTS : END ============================================================= -->            </div><!-- /.col -->
+            <div class="sub-form-row">
+                <!--<div class="container">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
+                        <form role="form">
+                            <input placeholder="Subscribe to our newsletter">
+                            <button class="le-button">Subscribe</button>
+                        </form>
+                    </div>
+                </div>--><!-- /.container -->
+            </div><!-- /.sub-form-row -->
 
-        </div><!-- /.widgets-row-->
-    </div><!-- /.container -->
+            <div class="link-list-row">
+                <div class="container no-padding">
+                    <div class="col-xs-12 col-md-4 ">
+                        <!-- ============================================================= CONTACT INFO ============================================================= -->
+                        <div class="contact-info">
+                            <div class="footer-logo">
+                                <img alt="logo" src="assets/images/logo.PNG" width="233" height="54"/>
+                            </div><!-- /.footer-logo -->
 
-    <div class="sub-form-row">
-        <!--<div class="container">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 no-padding">
-                <form role="form">
-                    <input placeholder="Subscribe to our newsletter">
-                    <button class="le-button">Subscribe</button>
-                </form>
-            </div>
-        </div>--><!-- /.container -->
-    </div><!-- /.sub-form-row -->
+                            <p class="regular-bold"> 请通过电话，电子邮件随时联系我们</p>
 
-    <div class="link-list-row">
-        <div class="container no-padding">
-            <div class="col-xs-12 col-md-4 ">
-                <!-- ============================================================= CONTACT INFO ============================================================= -->
-                <div class="contact-info">
-                    <div class="footer-logo">
-                        <img alt="logo" src="assets/images/logo.PNG" width="233" height="54"/>
-                    </div><!-- /.footer-logo -->
+                            <p>
+                                西城区二环到三环德胜门外大街10号TCL大厦3层(马甸桥南), 北京市西城区, 中国
+                                <br>慕课网 (QQ群:416465236)
+                            </p>
 
-                    <p class="regular-bold"> 请通过电话，电子邮件随时联系我们</p>
+                            <!--<div class="social-icons">
+                                <h3>Get in touch</h3>
+                                <ul>
+                                    <li><a href="http://facebook.com/transvelo" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-pinterest"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <li><a href="#" class="fa fa-stumbleupon"></a></li>
+                                    <li><a href="#" class="fa fa-dribbble"></a></li>
+                                    <li><a href="#" class="fa fa-vk"></a></li>
+                                </ul>
+                            </div>--><!-- /.social-icons -->
 
-                    <p>
-                        西城区二环到三环德胜门外大街10号TCL大厦3层(马甸桥南), 北京市西城区, 中国
-                        <br>慕课网 (QQ群:416465236)
-                    </p>
+                        </div>
+                        <!-- ============================================================= CONTACT INFO : END ============================================================= -->
+                    </div>
 
-                    <!--<div class="social-icons">
-                        <h3>Get in touch</h3>
-                        <ul>
-                            <li><a href="http://facebook.com/transvelo" class="fa fa-facebook"></a></li>
-                            <li><a href="#" class="fa fa-twitter"></a></li>
-                            <li><a href="#" class="fa fa-pinterest"></a></li>
-                            <li><a href="#" class="fa fa-linkedin"></a></li>
-                            <li><a href="#" class="fa fa-stumbleupon"></a></li>
-                            <li><a href="#" class="fa fa-dribbble"></a></li>
-                            <li><a href="#" class="fa fa-vk"></a></li>
-                        </ul>
-                    </div>--><!-- /.social-icons -->
+                    <div class="col-xs-12 col-md-8 no-margin">
+                        <!-- ============================================================= LINKS FOOTER ============================================================= -->
+                        <div class="link-widget">
+                            <div class="widget">
+                                <h3>快速检索</h3>
+                                <ul>
+                                    <li><a href="category-grid.html">laptops &amp; computers</a></li>
+                                    <li><a href="category-grid.html">Cameras &amp; Photography</a></li>
+                                    <li><a href="category-grid.html">Smart Phones &amp; Tablets</a></li>
+                                    <li><a href="category-grid.html">Video Games &amp; Consoles</a></li>
+                                    <li><a href="category-grid.html">TV &amp; Audio</a></li>
+                                    <li><a href="category-grid.html">Gadgets</a></li>
+                                    <li><a href="category-grid.html">Car Electronic &amp; GPS</a></li>
+                                    <li><a href="category-grid.html">Accesories</a></li>
+                                </ul>
+                            </div><!-- /.widget -->
+                        </div><!-- /.link-widget -->
 
-                </div>
-                <!-- ============================================================= CONTACT INFO : END ============================================================= -->            </div>
+                        <div class="link-widget">
+                            <div class="widget">
+                                <h3>热门商品</h3>
+                                <ul>
+                                    <li><a href="category-grid.html">Find a Store</a></li>
+                                    <li><a href="category-grid.html">About Us</a></li>
+                                    <li><a href="category-grid.html">Contact Us</a></li>
+                                    <li><a href="category-grid.html">Weekly Deals</a></li>
+                                    <li><a href="category-grid.html">Gift Cards</a></li>
+                                    <li><a href="category-grid.html">Recycling Program</a></li>
+                                    <li><a href="category-grid.html">Community</a></li>
+                                    <li><a href="category-grid.html">Careers</a></li>
 
-            <div class="col-xs-12 col-md-8 no-margin">
-                <!-- ============================================================= LINKS FOOTER ============================================================= -->
-                <div class="link-widget">
-                    <div class="widget">
-                        <h3>快速检索</h3>
-                        <ul>
-                            <li><a href="category-grid.html">laptops &amp; computers</a></li>
-                            <li><a href="category-grid.html">Cameras &amp; Photography</a></li>
-                            <li><a href="category-grid.html">Smart Phones &amp; Tablets</a></li>
-                            <li><a href="category-grid.html">Video Games &amp; Consoles</a></li>
-                            <li><a href="category-grid.html">TV &amp; Audio</a></li>
-                            <li><a href="category-grid.html">Gadgets</a></li>
-                            <li><a href="category-grid.html">Car Electronic &amp; GPS</a></li>
-                            <li><a href="category-grid.html">Accesories</a></li>
-                        </ul>
-                    </div><!-- /.widget -->
-                </div><!-- /.link-widget -->
+                                </ul>
+                            </div><!-- /.widget -->
+                        </div><!-- /.link-widget -->
 
-                <div class="link-widget">
-                    <div class="widget">
-                        <h3>热门商品</h3>
-                        <ul>
-                            <li><a href="category-grid.html">Find a Store</a></li>
-                            <li><a href="category-grid.html">About Us</a></li>
-                            <li><a href="category-grid.html">Contact Us</a></li>
-                            <li><a href="category-grid.html">Weekly Deals</a></li>
-                            <li><a href="category-grid.html">Gift Cards</a></li>
-                            <li><a href="category-grid.html">Recycling Program</a></li>
-                            <li><a href="category-grid.html">Community</a></li>
-                            <li><a href="category-grid.html">Careers</a></li>
+                        <div class="link-widget">
+                            <div class="widget">
+                                <h3>最近浏览</h3>
+                                <ul>
+                                    <li><a href="category-grid.html">My Account</a></li>
+                                    <li><a href="category-grid.html">Order Tracking</a></li>
+                                    <li><a href="category-grid.html">Wish List</a></li>
+                                    <li><a href="category-grid.html">Customer Service</a></li>
+                                    <li><a href="category-grid.html">Returns / Exchange</a></li>
+                                    <li><a href="category-grid.html">FAQs</a></li>
+                                    <li><a href="category-grid.html">Product Support</a></li>
+                                    <li><a href="category-grid.html">Extended Service Plans</a></li>
+                                </ul>
+                            </div><!-- /.widget -->
+                        </div><!-- /.link-widget -->
+                        <!-- ============================================================= LINKS FOOTER : END ============================================================= -->
+                    </div>
+                </div><!-- /.container -->
+            </div><!-- /.link-list-row -->
 
-                        </ul>
-                    </div><!-- /.widget -->
-                </div><!-- /.link-widget -->
+            <div class="copyright-bar">
+                <div class="container">
+                    <div class="col-xs-12 col-sm-6 no-margin">
+                        <div class="copyright">
+                            &copy; <a href="index.html">Imooc.com</a> - all rights reserved
+                        </div><!-- /.copyright -->
+                    </div>
+                    <div class="col-xs-12 col-sm-6 no-margin">
+                        <div class="payment-methods ">
+                            <ul>
+                                <li><img alt="" src="assets/images/payments/payment-visa.png"></li>
+                                <li><img alt="" src="assets/images/payments/payment-master.png"></li>
+                                <li><img alt="" src="assets/images/payments/payment-paypal.png"></li>
+                                <li><img alt="" src="assets/images/payments/payment-skrill.png"></li>
+                            </ul>
+                        </div><!-- /.payment-methods -->
+                    </div>
+                </div><!-- /.container -->
+            </div><!-- /.copyright-bar -->
 
-                <div class="link-widget">
-                    <div class="widget">
-                        <h3>最近浏览</h3>
-                        <ul>
-                            <li><a href="category-grid.html">My Account</a></li>
-                            <li><a href="category-grid.html">Order Tracking</a></li>
-                            <li><a href="category-grid.html">Wish List</a></li>
-                            <li><a href="category-grid.html">Customer Service</a></li>
-                            <li><a href="category-grid.html">Returns / Exchange</a></li>
-                            <li><a href="category-grid.html">FAQs</a></li>
-                            <li><a href="category-grid.html">Product Support</a></li>
-                            <li><a href="category-grid.html">Extended Service Plans</a></li>
-                        </ul>
-                    </div><!-- /.widget -->
-                </div><!-- /.link-widget -->
-                <!-- ============================================================= LINKS FOOTER : END ============================================================= -->            </div>
-        </div><!-- /.container -->
-    </div><!-- /.link-list-row -->
+        </footer><!-- /#footer -->
+        <!-- ============================================================= FOOTER : END ============================================================= -->
+    </div><!-- /.wrapper -->
 
-    <div class="copyright-bar">
-        <div class="container">
-            <div class="col-xs-12 col-sm-6 no-margin">
-                <div class="copyright">
-                    &copy; <a href="index.html">Imooc.com</a> - all rights reserved
-                </div><!-- /.copyright -->
-            </div>
-            <div class="col-xs-12 col-sm-6 no-margin">
-                <div class="payment-methods ">
-                    <ul>
-                        <li><img alt="" src="assets/images/payments/payment-visa.png"></li>
-                        <li><img alt="" src="assets/images/payments/payment-master.png"></li>
-                        <li><img alt="" src="assets/images/payments/payment-paypal.png"></li>
-                        <li><img alt="" src="assets/images/payments/payment-skrill.png"></li>
-                    </ul>
-                </div><!-- /.payment-methods -->
-            </div>
-        </div><!-- /.container -->
-    </div><!-- /.copyright-bar -->
+    <!-- JavaScripts placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/gmap3.min.js"></script>
+    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/css_browser_selector.min.js"></script>
+    <script src="assets/js/echo.min.js"></script>
+    <script src="assets/js/jquery.easing-1.3.min.js"></script>
+    <script src="assets/js/bootstrap-slider.min.js"></script>
+    <script src="assets/js/jquery.raty.min.js"></script>
+    <script src="assets/js/jquery.prettyPhoto.min.js"></script>
+    <script src="assets/js/jquery.customSelect.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
 
-</footer><!-- /#footer -->
-<!-- ============================================================= FOOTER : END ============================================================= -->	</div><!-- /.wrapper -->
+    <script>
+        $("#createlink").click(function () {
+            $(".billing-address").slideDown();
+        });
 
-<!-- JavaScripts placed at the end of the document so the pages load faster -->
-<script src="assets/js/jquery-1.10.2.min.js"></script>
-<script src="assets/js/jquery-migrate-1.2.1.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/gmap3.min.js"></script>
-<script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/css_browser_selector.min.js"></script>
-<script src="assets/js/echo.min.js"></script>
-<script src="assets/js/jquery.easing-1.3.min.js"></script>
-<script src="assets/js/bootstrap-slider.min.js"></script>
-<script src="assets/js/jquery.raty.min.js"></script>
-<script src="assets/js/jquery.prettyPhoto.min.js"></script>
-<script src="assets/js/jquery.customSelect.min.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/scripts.js"></script>
-
-<script>
-    $("#createlink").click(function () {
-        $(".billing-address").slideDown();
-    });
-
-</script>
+    </script>
 
 </body>
 </html>

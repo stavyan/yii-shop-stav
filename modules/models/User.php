@@ -73,4 +73,13 @@ class User extends ActiveRecord
         return $this->hasOne(Profile::className(), ['userid' => 'userid']);
     }
 
+    /**
+     * Returns static class instance, which can be used to obtain meta information.
+     * @param bool $refresh whether to re-create static instance even, if it is already cached.
+     * @return static class instance.
+     */
+    public static function instance($refresh = false)
+    {
+        // TODO: Implement instance() method.
+    }
 }

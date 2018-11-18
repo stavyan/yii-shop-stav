@@ -80,6 +80,7 @@ class MemberController extends Controller
             $session['isLogin'] = 1;
             return $this->redirect(['index/index']);
         }
+        return $this->redirect(['member/qqreg']);
     }
 
     public function actionQqreg()

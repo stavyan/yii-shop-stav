@@ -6,12 +6,17 @@
  * Time: 下午3:29
  */
 
-?>
-
-<?php
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 ?>
+
+<!-- ========================================= MAIN : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
+<script>
+    var qqbtn = document.getElementById("login_qq");
+    qqbtn.onclick = function(){
+        window.location.href="<?php echo yii\helpers\Url::to(['member/qqlogin']) ?>";
+    }
+</script>
 <!-- ============================================================= HEADER : END ============================================================= -->		<!-- ========================================= MAIN ========================================= -->
 <main id="authentication" class="inner-bottom-md">
     <div class="container">
@@ -38,9 +43,9 @@ use yii\helpers\Html;
                         //'action' => ['member/auth'],
                     ]); ?>
                     <input type="text" value="<?php echo Yii::$app->session['userinfo']['nickname'] ?>" class="le-input"><br>
-                    <?php echo $form->field($model, 'username')->textInput(['class' => 'le-input']); ?>
-                    <?php echo $form->field($model, 'userpass')->passwordInput(['class' => 'le-input']); ?>
-                    <?php echo $form->field($model, 'repass')->passwordInput(['class' => 'le-input']); ?>
+<!--                    --><?php //echo $form->field($model, 'username')->textInput(['class' => 'le-input']); ?>
+<!--                    --><?php //echo $form->field($model, 'userpass')->passwordInput(['class' => 'le-input']); ?>
+<!--                    --><?php //echo $form->field($model, 'repass')->passwordInput(['class' => 'le-input']); ?>
                     <div class="field-row clearfix">
                     </div>
 
@@ -56,10 +61,3 @@ use yii\helpers\Html;
         </div><!-- /.row -->
     </div><!-- /.container -->
 </main><!-- /.authentication -->
-<!-- ========================================= MAIN : END ========================================= -->		<!-- ============================================================= FOOTER ============================================================= -->
-<script>
-    var qqbtn = document.getElementById("login_qq");
-    qqbtn.onclick = function(){
-        window.location.href="<?php echo yii\helpers\Url::to(['member/qqlogin']) ?>";
-    }
-</script>

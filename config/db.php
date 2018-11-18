@@ -4,7 +4,7 @@ return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=127.0.0.1;dbname=yss_shop',
     'username' => 'root',
-    'password' => '617946852',
+    'password' => '617946',
     'charset' => 'utf8',
     'tablePrefix' => 'shop_'
     // Schema cache options (for production environment)
