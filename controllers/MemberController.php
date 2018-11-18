@@ -74,7 +74,7 @@ class MemberController extends Controller
         echo $openid;
         echo $accessToken;
         $qcc = new \QC();
-        $ret = $qcc->get_info();
+        $ret = $qcc->get_user_info();
         echo $ret;
         $userinfo = $qc->get_user_info();
         echo $userinfo;
