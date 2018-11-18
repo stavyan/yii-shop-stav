@@ -52,3 +52,23 @@ CREATE TABLE IF NOT EXISTS `shop_category` (
   PRIMARY KEY(`cateid`),
   KEY shop_category_parentid(`parentid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `shop_product`;
+CREATE TABLE IF NOT EXISTS `shop_product`(
+  `productid` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cateid` BIGINT UNSIGNED NOT NULL DEFAULT '0',
+  `title` VARCHAR(200) NOT NULL DEFAULT '',
+  `descr` TEXT,
+  `num` BIGINT UNSIGNED NOT NULL DEFAULT '0',
+  `price` DECIMAL(10, 2) UNSIGNED NOT NULL DEFAULT '00000000.00',
+  `cover` VARCHAR(200) NOT NULL DEFAULT '',
+  `pics` TEXT,
+  `issale` ENUM('0', '1') NOT NULL DEFAULT '0',
+  `saleprice` DECIMAL(10, 2) UNSIGNED NOT NULL DEFAULT '00000000.00',
+  `ishot` ENUM('0', '1') NOT NULL DEFAULT '0',
+  `ison` ENUM('0', '1') NOT NULL DEFAULT '0',
+  `istui` ENUM('0', '1') NOT NULL DEFAULT '0',
+  `createtime` INT UNSIGNED NOT NULL DEFAULT '0',
+  primary KEY(`productid`),
+  KEY shop_product_cateid(`cateid`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -91,4 +91,19 @@ class Category extends ActiveRecord {
         return $options;
     }
 
+    public function getTreeList() {
+        $data = $this->getData();
+        $tree = $this->getTree($data);
+        return $tree = $this->setPrefix($tree);
+    }
+
+    /**
+     * Returns static class instance, which can be used to obtain meta information.
+     * @param bool $refresh whether to re-create static instance even, if it is already cached.
+     * @return static class instance.
+     */
+    public static function instance($refresh = false)
+    {
+        // TODO: Implement instance() method.
+    }
 }
