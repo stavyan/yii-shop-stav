@@ -18,6 +18,6 @@
 
 <p>您可以通过改收件箱邮箱地址或者用户名进行登录！</p>
 
-<p>登录地址：<?php echo Yii::$app->urlManager->createAbsoluteUrl(['member/auth']); ?></p>
+<!--<p>登录地址：--><?php //echo Yii::$app->urlManager->createAbsoluteUrl(['member/auth']); ?><!--</p>-->
 
 <p>该邮件是系统自动发送，请勿回复！</p>
