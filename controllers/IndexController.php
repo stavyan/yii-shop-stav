@@ -8,19 +8,20 @@
 
 namespace app\controllers;
 
-use yii\web\Controller;
+use app\modules\models\Product;
 
-class IndexController extends Controller {
+class IndexController extends CommonController {
 
     public function actionIndex () {
           // 关闭布局
-//        $this->layout = false;
-//        return $this->render("index");
-//        return $this->renderPartial("index");
+        $this->layout = 'layout';
 
         // 渲染页面
-        $this->layout = "layout";
-        return $this->render("index");
+        $data['tui'] = Product::find()->where('istui = "1" and ison = "1"')->orderby('createtime desc')->limit(4)->all();
+        $data['new'] = Product::find()->where('ison = "1"')->orderby('createtime desc')->limit(4)->all();
+        $data['hot'] = Product::find()->where('ison = "1" and ishot = "1"')->orderby('createtime desc')->limit(4)->all();
+        $data['all'] = Product::find()->where('ison = "1"')->orderby('createtime desc')->limit(7)->all();
+        return $this->render("index", ['data' => $data]);
     }
 
 }

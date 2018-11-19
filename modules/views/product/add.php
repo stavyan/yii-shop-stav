@@ -49,16 +49,16 @@
                                 echo $form->field($model, 'cover')->fileInput(['class' => 'span9']);
                                 if (!empty($model->cover)):
                                 ?>
-                                    <img src="<?php echo $model->cover;?>-covermiddle">
+                                    <img src="<?php echo $model->cover;?>">
                                     <hr>
                                 <?php
                                     endif;
                                     echo $form->field($model, 'pics[]')->fileInput(['class' => 'span9', 'multiple' => true,]);
                                 ?>
                                 <?php
-                                    foreach((array)json_decode($model->pics, true) as $k=>$pic) {
+                                    foreach((array) json_decode($model->pics, true) as $k=>$pic) {
                                 ?>
-                                    <img src="<?php echo $pic ?>-coversmall">
+                                    <img src="<?php echo $pic ?>">
                                     <a href="<?php echo yii\helpers\Url::to(['product/removepic', 'key' => $k, 'productid' => $model->productid]) ?>">删除</a>
                                 <?php
                                 }

@@ -8,11 +8,10 @@
 
 namespace app\controllers;
 
+use app\modules\models\Category;
+use app\modules\models\Product;
 use yii\web\Controller;
-use app\models\Category;
-use app\models\Cart;
 use app\models\User;
-use app\models\Product;
 use Yii;
 
 class CommonController extends Controller

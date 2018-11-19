@@ -54,7 +54,7 @@
                         <?php foreach($products as $product): ?>
                         <tr class="first">
                             <td>
-                                <img src="<?php echo $product->cover; ?>-coversmall" class="img-circle avatar hidden-phone" />
+                                <img src="<?php echo $product->cover; ?>" class="img-circle avatar hidden-phone" />
                                 <a href="#" class="name"><?php echo $product->title; ?></a>
                             </td>
                             <td>

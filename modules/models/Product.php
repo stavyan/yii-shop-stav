@@ -9,10 +9,10 @@ use yii\db\ActiveRecord;
 class Product extends ActiveRecord
 {
     //七牛参数
-    const AK = 'zl4_Y_0nmiKTvAKK5YKQYWaqd6N6uJJXP0VawLII';
-    const SK = 'C8qiSaATScaj_iXjkylljYuWwh0VAfsfxEkh--P3';
-    const DOMAIN = 'pawukabl7.bkt.clouddn.com';
-    const BUCKET = 'zq-edu';
+    const AK = 'SoqBpLMRzu02TsqifawZVAPyA_w83FkX_d7HLco8';
+    const SK = 'LT_dSJNCKl3i739ebN6PoGKvt143lrFKdGVnnHCH';
+    const DOMAIN = 'http://pif9eqpfw.bkt.clouddn.com';
+    const BUCKET = 'yss-shop';
     public function rules()
     {
         return [
