@@ -132,6 +132,7 @@
             </div><!-- /.top-search-holder -->
 
             <div class="col-xs-12 col-sm-12 col-md-3 top-cart-row no-margin">
+
                 <div class="top-cart-row-container">
 
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
@@ -141,79 +142,45 @@
 
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <div class="basket-item-count">
-                                    <span class="count">3</span>
-                                    <img src="assets/images/icon-cart.png" alt=""/>
+                                    <span class="count"><?php echo count($this->params['cart']['products']) ?></span>
+                                    <img src="/assets/images/icon-cart.png" alt="" />
                                 </div>
 
                                 <div class="total-price-basket">
                                     <span class="lbl">您的购物车:</span>
                                     <span class="total-price">
-                        <span class="sign">￥</span><span class="value">3219</span>
+                    <span class="sign">￥</span><span class="value"><?php echo $this->params['cart']['total'] ?></span>
                     </span>
                                 </div>
                             </a>
 
                             <ul class="dropdown-menu">
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <img alt="" src="assets/images/products/product-small-01.jpg"/>
+                                <?php foreach((array)$this->params['cart']['products'] as $product): ?>
+                                    <li>
+                                        <div class="basket-item">
+                                            <div class="row">
+                                                <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                                    <div class="thumb">
+                                                        <img alt="" src="<?php echo $product['cover'] ?>-picsmall" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-8 col-sm-8 no-margin">
+                                                    <div class="title"><?php echo $product['title'] ?></div>
+                                                    <div class="price">￥ <?php echo $product['price'] ?></div>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-8 col-sm-8 no-margin">
-                                                <div class="title">前端课程</div>
-                                                <div class="price">￥270.00</div>
-                                            </div>
+                                            <a class="close-btn" href="<?php echo yii\helpers\Url::to(['cart/del', 'cartid' => $product['cartid']]) ?>"></a>
                                         </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <img alt="" src="assets/images/products/product-small-01.jpg"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8 no-margin">
-                                                <div class="title">Java课程</div>
-                                                <div class="price">￥270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="basket-item">
-                                        <div class="row">
-                                            <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                <div class="thumb">
-                                                    <img alt="" src="assets/images/products/product-small-01.jpg"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-8 col-sm-8 no-margin">
-                                                <div class="title">PHP课程</div>
-                                                <div class="price">￥270.00</div>
-                                            </div>
-                                        </div>
-                                        <a class="close-btn" href="#"></a>
-                                    </div>
-                                </li>
-
-
+                                    </li>
+                                <?php endforeach; ?>
                                 <li class="checkout">
                                     <div class="basket-item">
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-6">
-                                                <a href="cart.html" class="le-button inverse">查看购物车</a>
+                                                <a href="<?php echo yii\helpers\Url::to(['cart/index']) ?>" class="le-button inverse">查看购物车</a>
                                             </div>
                                             <div class="col-xs-12 col-sm-6">
-                                                <a href="checkout.html" class="le-button">去往收银台</a>
+                                                <a href="<?php echo yii\helpers\Url::to(['cart/index']) ?>" class="le-button">去往收银台</a>
                                             </div>
                                         </div>
                                     </div>
@@ -909,10 +876,32 @@
 <script src="assets/js/scripts.js"></script>
 
 <script>
-    $("#createlink").click(function () {
+    $("#createlink").click(function(){
         $(".billing-address").slideDown();
     });
-
+    $("li.disabled").hide();
+    $(".expressshow").hide();
+    $(".express").click(function(e){
+        e.preventDefault();
+    });
+    $(".express").hover(function(){
+        var a = $(this);
+        if ($(this).attr('data') != 'ok') {
+            $.get('<?php echo yii\helpers\Url::to(['order/getexpress']) ?>', {'expressno':$(this).attr('data')}, function(res) {
+                var str = "";
+                if (res.message = 'ok') {
+                    for(var i = 0;i<res.data.length;i++) {
+                        str += "<p>"+res.data[i].context+" "+res.data[i].time+" </p>";
+                    }
+                }
+                a.find(".expressshow").html(str);
+                a.attr('data', 'ok');
+            }, 'json');
+        }
+        $(this).find(".expressshow").show();
+    }, function(){
+        $(this).find(".expressshow").hide();
+    });
 </script>
 
 </body>

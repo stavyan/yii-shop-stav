@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\models\Cart;
 use app\modules\models\Category;
 use app\modules\models\Product;
 use yii\web\Controller;

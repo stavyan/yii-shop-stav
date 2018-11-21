@@ -72,3 +72,17 @@ CREATE TABLE IF NOT EXISTS `shop_product`(
   primary KEY(`productid`),
   KEY shop_product_cateid(`cateid`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `shop_cart`;
+CREATE TABLE IF NOT EXISTS `shop_cart`(
+  `cartid` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `productid` BIGINT UNSIGNED NOT NULL DEFAULT '0',
+  `productnum` INT UNSIGNED NOT NULL DEFAULT '0',
+  `price` DECIMAL(10, 2) NOT NULL DEFAULT '0.00',
+  `userid` BIGINT UNSIGNED NOT NULL DEFAULT '0',
+  `createtime` INT UNSIGNED NOT NULL DEFAULT '0',
+  primary KEY(`cartid`),
+  KEY shop_cart_productid(`productid`),
+  KEY shop_cart_userid(`userid`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
